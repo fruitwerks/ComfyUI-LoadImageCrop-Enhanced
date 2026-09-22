@@ -1,0 +1,38 @@
+# Changelog
+
+## Forked Project 09-21-2026 - v1.0
+
+- Renamed to LoadImageCrop Enhanced
+- Added MP target and calculated width/height outputs with multiple tuning.
+- Added integrated native crop method dropdown with mask friendly options.
+- Added raw mask and image outputs (cropped, but not resized)
+- Added crop_data output for follower node. Ideal for image/mask sets
+
+## v1.0.5 (2026-09-07)
+
+- Fixed the node's right-click context menu: it now preserves the core's extra entries (Open Image, Save Image, Bypass, Clipspace, and "Open in MaskEditor | Image Canvas"). The node's menu hook replaced the core implementation instead of chaining into it, which silently dropped those entries.
+- The node now reliably exposes its loaded preview to the core image checks (`node.imgs` / `previewMediaType`) in both the classic and the 2.0 layouts, so the Mask Editor and the image menu actions operate on it.
+
+## v1.0.4 (2026-09-04)
+
+- Added the **Free (Custom)** aspect-ratio option (both the classic and the 2.0 layouts): it lifts the ratio lock so the crop box can be any shape. The four box corners show resize handles — dragging one resizes the box freely (the opposite corner stays fixed), dragging inside the box still moves it, and the wheel zooms it at the box's own drawn ratio. The box starts as a centered 90×90% area so the handles stay inside the preview; a new image starts from that box too. The default (Original) and the preset ratios are unchanged.
+
+## v1.0.3 (2026-09-03)
+
+- Classic nodes: the crop drag now starts only when the pointer is inside the crop box (the "move" cursor follows the same area); clicks and drags elsewhere keep the core node behavior, matching the official Load Image passthrough.
+
+## v1.0.2 (2026-09-02)
+
+- Added ComfyUI 2.0 (Vue nodes) support: the crop overlay is rendered as a DOM element on top of the preview image, with drag and wheel zoom; the overlay is created/removed automatically when the nodes mode is switched at runtime, so no page reload is needed.
+- Clipboard paste unified on the native pipeline: the context-menu entry now drives the node's native paste methods, identical to the core 2.0 "Paste Image" entry (screenshots; OS file copies work via Ctrl+V). The custom upload path was removed.
+
+## v1.0.1 (2026-09-01)
+
+- Added "Original" as the default `aspect_ratio`: the image passes through uncropped (W×H, no resample), with no crop overlay and no mouse interaction — the node behaves exactly like the official Load Image node.
+
+## v1.0.0 (2026-08-31, initial release)
+
+- Node based on the official Load Image: same file dialog, drag & drop, and preview.
+- Visual crop rectangle drawn on top of the official preview: drag to move, mouse wheel to zoom, locked to a fixed aspect-ratio list (1:1, 2:3, 3:2, 3:4, 4:3, 9:16, 16:9, 21:9).
+- WYSIWYG: the cropped IMAGE and MASK outputs exactly match the framed area on the preview.
+- Paste image from clipboard, available from the node's right-click context menu (saves to `input/` and auto-selects the file).

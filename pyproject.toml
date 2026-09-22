@@ -1,0 +1,16 @@
+[project]
+name = "ComfyUI-LoadImageCrop-Enhanced"
+description = "An extended Load Image node with an aspect-ratio-locked, WYSIWYG crop rectangle that outputs the cropped IMAGE and MASK."
+version = "1.0.5"
+license = "MIT"
+
+[project.urls]
+Repository = "https://github.com/fruitwerks/ComfyUI-LoadImageCrop-Enhanced"
+Documentation = "https://github.com/fruitwerks/ComfyUI-LoadImageCrop-Enhanced#readme"
+"Bug Tracker" = "https://github.com/fruitwerks/ComfyUI-LoadImageCrop-Enhanced/issues"
+
+[tool.comfy]
+PublisherId = "fruitwerks"
+DisplayName = "Load Image + Crop Enhanced"
+Icon = ""
+includes = []

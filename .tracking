@@ -1,0 +1,9 @@
+.github/workflows/publish_action.yml
+.gitignore
+CHANGELOG.md
+LICENSE
+README.md
+__init__.py
+load_image_crop.py
+pyproject.toml
+web/js/loadImageCrop.js
